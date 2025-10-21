@@ -9,7 +9,7 @@ const ImageSlider = ({ refresh, showToast }) => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/images");
+      const res = await axios.get("https://image-backend-r9o1.onrender.com/api/images");
       setImages(res.data);
     } catch (err) {
       showToast("error", "Failed to load images!");
@@ -18,7 +18,7 @@ const ImageSlider = ({ refresh, showToast }) => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/images/${id}`);
+      const res = await axios.delete(`https://image-backend-r9o1.onrender.com/api/images/${id}`);
       showToast("success", res.data.message);
       fetchImages();
     } catch (err) {
@@ -70,7 +70,7 @@ const ImageSlider = ({ refresh, showToast }) => {
           {images.map((img) => (
             <div key={img._id} className="image-container">
               <button className="delete-btn" onClick={() => handleDelete(img._id)}>✖</button>
-              <img src={`http://localhost:5000/uploads/${img.filename}`} alt="Uploaded" />
+              <img src={`https://image-backend-r9o1.onrender.com/uploads/${img.filename}`} alt="Uploaded" />
             </div>
           ))}
         </Slider>
