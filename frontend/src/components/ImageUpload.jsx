@@ -14,7 +14,7 @@ const ImageUpload = ({ onUpload, showToast }) => {
     formData.append("image", file); // 👈 key name must match backend
 
     try {
-      const res = await axios.post("http://localhost:5000/api/images/upload", formData);
+      const res = await axios.post("https://image-backend-r9o1.onrender.com/api/images/upload", formData);
       showToast("success", res.data.message);
       setFile(null);
       if (onUpload) onUpload();
